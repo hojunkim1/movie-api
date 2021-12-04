@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Movie api with Graphql",
   "main": "index.js",
-  "repository": "",
+  "repository": "https://github.com/hojunkim1/movie-api.git",
   "author": "Hojun Kim",
   "license": "MIT",
-  "dependencies": {
-    "graphql-yoga": "^1.18.3"
-  },
   "scripts": {
     "start": "nodemon --exec babel-node index.js"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
