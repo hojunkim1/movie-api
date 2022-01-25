@@ -1,6 +1,6 @@
 {
   "name": "movieql",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Movie api with Graphql",
   "main": "index.js",
   "repository": "https://github.com/hojunkim1/movie-api.git",
