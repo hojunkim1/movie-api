@@ -7,10 +7,12 @@
   "author": "Hojun Kim",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js"
+    "babel-node": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
+    "start": "nodemon --exec npm run babel-node -- index.js"
   },
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "graphql-yoga": "^1.18.3",
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
