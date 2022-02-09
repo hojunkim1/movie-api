@@ -11,11 +11,11 @@
     "start": "nodemon --exec npm run babel-node -- index.js"
   },
   "dependencies": {
-    "graphql-yoga": "^1.18.3",
-    "node-fetch": "^2.6.7"
+    "axios": "^0.25.0",
+    "graphql-yoga": "^1.18.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.2",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "nodemon": "^2.0.15"
