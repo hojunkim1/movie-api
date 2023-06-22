@@ -1,1 +1,1 @@
-# Movie api with Graphql
+# Tweet api in Apollo Graphql
