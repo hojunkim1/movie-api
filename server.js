@@ -27,22 +27,66 @@ let users = [
 ];
 
 const typeDefs = gql`
+  """
+  User object
+  """
   type User {
     id: ID!
     firstName: String!
     lastName: String!
     fullName: String!
   }
+
+  """
+  Tweet object
+  """
   type Tweet {
     id: ID!
     text: String!
     author: User
   }
+
+  """
+  Movie object for client apollo project
+  """
+  type Movie {
+    id: Int!
+    url: String!
+    imdb_code: String!
+    title: String!
+    title_english: String!
+    title_long: String!
+    slug: String!
+    year: Int!
+    rating: Float!
+    runtime: Float!
+    genres: [String]!
+    summary: String
+    description_full: String!
+    synopsis: String
+    yt_trailer_code: String!
+    language: String!
+    background_image: String!
+    background_image_original: String!
+    small_cover_image: String!
+    medium_cover_image: String!
+    large_cover_image: String!
+  }
+
+  """
+  "Immutable" Root object : like GET in http
+  """
   type Query {
+    allMovies: [Movie!]!
     allUsers: [User!]!
     allTweets: [Tweet!]!
     tweet(id: ID!): Tweet
+    movie(id: String!): Movie
   }
+
+  """
+  "Mutable" Root object : like POST, PUT, DELETE in http
+  """
   type Mutation {
     postTweet(text: String!, userId: ID!): Tweet!
     deleteTweet(id: ID!): Boolean!
@@ -59,6 +103,18 @@ const resolvers = {
     },
     allUsers() {
       return users;
+    },
+    async allMovies() {
+      const json = await (
+        await fetch("https://yts.mx/api/v2/list_movies.json")
+      ).json();
+      return json.data.movies;
+    },
+    async movie(_, { id }) {
+      const json = await (
+        await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+      ).json();
+      return json.data.movie;
     },
   },
   Mutation: {
