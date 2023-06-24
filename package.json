@@ -7,15 +7,16 @@
   "author": "Hojun Kim <76956067+hojunkim1@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
+  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "apollo-server": "^3.12.0",
-    "graphql": "^16.7.0"
+    "graphql": "^16.7.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  },
-  "type": "module"
+  }
 }
